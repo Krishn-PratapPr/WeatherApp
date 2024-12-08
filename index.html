@@ -7,7 +7,7 @@
     <title>Weather</title>
   </head>
   <body style="font-family: sans-serif" class="container">
-    <div>
+    <div> 
       <nav class="navbar">
         <div class="navbar-container">
           <a href="#" class="brand">Weather App</a>
@@ -17,14 +17,15 @@
             <span class="bar"></span>
           </div>
           <ul class="nav-links" id="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Temperature</a></li>
-            <li><a href="#">Feels like</a></li>
-            <li><a href="#">Wind</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tempp">Temperature</a></li>
+            <li><a href="#feels-like">Feels like</a></li>
+            <li><a href="#windd">Wind</a></li>
           </ul>
         </div>
       </nav>
     </div>
+    <section id="home">
     <div
       style="
         display: flex;
@@ -53,7 +54,7 @@
           <span id="location"></span>, <span id="country"></span>
         </div>
       </div>
-    </div>
+    </div> </section>
     <div
       style="
         display: flex;
@@ -62,6 +63,7 @@
         flex-direction: column;
       "
     >
+    <section id="tempp"></section>
       <div class="card">
         <section class="landscape-section">
           <div class="sky"></div>
@@ -216,6 +218,7 @@
           </div>
         </section>
       </div>
+      <section id="feels-like"></section>
       <div class="card">
         <section class="landscape-section">
           <div class="sky"></div>
@@ -369,7 +372,8 @@
             </div>
           </div>
         </section>
-      </div>
+      </div> 
+      <section id="windd"></section>
       <div class="card">
         <section class="landscape-section">
           <div class="sky"></div>
