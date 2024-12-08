@@ -33,6 +33,8 @@ async function fetchWeatherData(city) {
     const description = data.current.condition.text;
     const temp_f = data.current.temp_f;
     const last_updated = data.current.last_updated;
+    const location = data.location.region;
+    const country = data.location.country;
 
     // Update the HTML with the fetched data
     document.getElementById("temp_c").innerHTML = ` ${temp_c} <sup>°C</sup>`;
@@ -47,6 +49,8 @@ async function fetchWeatherData(city) {
     document.getElementById("gust_kph").innerText = `${gust_kph}`;
     document.getElementById("temp_f").innerText = `${temp_f}`;
     document.getElementById("last_updated").innerText = `${last_updated}`;
+    document.getElementById("location").innerText = `${location}`;
+    document.getElementById("country").innerText = `${country}`;
 
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -54,7 +58,7 @@ async function fetchWeatherData(city) {
 }
 
 // Initial fetch for default city or when the page loads
-fetchWeatherData("Agra");
+fetchWeatherData("New Delhi");
 
 // Event listener for the search button
 submitButton.addEventListener("click", (event) => {
@@ -65,4 +69,8 @@ submitButton.addEventListener("click", (event) => {
   } else {
     alert("Please enter a city name.");
   }
+});
+// Toggle the navbar on hamburger click
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('active');
 });
