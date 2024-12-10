@@ -13,6 +13,22 @@ async function fetchWeatherData(city) {
   try {
     // Fetching data from the API
     const response = await fetch(url, options);
+
+    // Check if the response status indicates an error
+    if (!response.ok) {
+      if (response.status === 400) {
+        const errorData = await response.json();
+        if (errorData.error && errorData.error.message) {
+          alert(`Error: ${errorData.error.message}`);
+        } else {
+          alert("City not found. Please enter a correct city name.");
+        }
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+      return;
+    }
+
     const data = await response.json(); // WeatherAPI returns data in JSON format
     
     // Display the city name
@@ -46,7 +62,6 @@ async function fetchWeatherData(city) {
     document.getElementById("wind_degree").innerText = `${wind_degree}`;
     document.getElementById("pressure_in").innerText = `${pressure_in}`;
     document.getElementById("gust_kph").innerText = `${gust_kph}`;
-    document.getElementById("gust_kph").innerText = `${gust_kph}`;
     document.getElementById("temp_f").innerText = `${temp_f}`;
     document.getElementById("last_updated").innerText = `${last_updated}`;
     document.getElementById("location").innerText = `${location}`;
@@ -54,6 +69,7 @@ async function fetchWeatherData(city) {
 
   } catch (error) {
     console.error("Error fetching weather data:", error);
+    alert("Error fetching weather data. Please check your internet connection and try again.");
   }
 }
 
@@ -70,6 +86,7 @@ submitButton.addEventListener("click", (event) => {
     alert("Please enter a city name.");
   }
 });
+
 // Toggle the navbar on hamburger click
 document.getElementById('hamburger').addEventListener('click', function() {
   document.getElementById('nav-links').classList.toggle('active');
