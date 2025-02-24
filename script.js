@@ -29,12 +29,12 @@ async function fetchWeatherData(city) {
       return;
     }
 
-    const data = await response.json(); // WeatherAPI returns data in JSON format
+    const data = await response.json(); 
     
     // Display the city name
-    cityName.innerHTML = city; // Update the displayed city name
+    cityName.innerHTML = city; 
 
-    // Logging the complete response data (for debugging)
+    
     console.log(data);
 
     // Extracting specific weather data
@@ -52,7 +52,7 @@ async function fetchWeatherData(city) {
     const location = data.location.region;
     const country = data.location.country;
 
-    // Update the HTML with the fetched data
+    // Update the HTML 
     document.getElementById("temp_c").innerHTML = ` ${temp_c} <sup>°C</sup>`;
     document.getElementById("humidity").innerText = `${humidity}`;
     document.getElementById("description").innerText = `${description}`;
